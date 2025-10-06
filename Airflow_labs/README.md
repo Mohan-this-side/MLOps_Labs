@@ -6,23 +6,23 @@
 
 ---
 
-## 🎉 Pipeline Success - Results Achieved!
+## Pipeline Success - Results Achieved
 
-**✅ Successfully deployed and executed ML pipeline with 80.6% accuracy!**
+**Successfully deployed and executed ML pipeline with 80.6% accuracy**
 
 The Wine Quality Classification pipeline has been successfully implemented using Apache Airflow and Docker. All tasks completed successfully, generating trained models and comprehensive evaluation reports.
 
 ![Successful Pipeline Execution](assets/image.png)
 
 **Quick Results:**
-- 🎯 Model Accuracy: **80.6%**
-- 🔄 Cross-Validation: **79.4%**
-- 📊 Best Feature: **alcohol_to_density** (engineered feature - 16.9% importance)
-- 💾 Generated Files: `wine_quality_model.pkl`, `scaler.pkl`, `evaluation_report.json`
+- Model Accuracy: **80.6%**
+- Cross-Validation: **79.4%**
+- Best Feature: **alcohol_to_density** (engineered feature - 16.9% importance)
+- Generated Files: `wine_quality_model.pkl`, `scaler.pkl`, `evaluation_report.json`
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [What This Lab Demonstrates](#what-this-lab-demonstrates)
@@ -37,7 +37,7 @@ The Wine Quality Classification pipeline has been successfully implemented using
 
 ---
 
-## 🎯 Overview
+## Overview
 
 This lab demonstrates a complete **MLOps workflow** using **Apache Airflow** to orchestrate a machine learning pipeline. The pipeline predicts wine quality (good vs. bad) based on physicochemical properties using a Random Forest classifier.
 
@@ -50,7 +50,7 @@ This lab demonstrates a complete **MLOps workflow** using **Apache Airflow** to 
 
 ---
 
-## 🚀 What This Lab Demonstrates
+## What This Lab Demonstrates
 
 By completing this lab, you'll understand how to:
 
@@ -64,7 +64,7 @@ By completing this lab, you'll understand how to:
 
 ---
 
-## 📊 Dataset
+## Dataset
 
 **Source:** [Red Wine Quality Dataset (Kaggle)](https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009)
 
@@ -91,7 +91,7 @@ The dataset contains 1,599 samples of Portuguese "Vinho Verde" red wine with 11 
 
 ---
 
-## 🏗️ Pipeline Architecture
+## Pipeline Architecture
 
 The Airflow DAG orchestrates 4 sequential tasks:
 
@@ -154,7 +154,7 @@ The Airflow DAG orchestrates 4 sequential tasks:
 
 ---
 
-## 🔧 Prerequisites
+## Prerequisites
 
 ### Required Software
 - **Docker Desktop** (with at least 4GB RAM, ideally 8GB)
@@ -169,7 +169,7 @@ The Airflow DAG orchestrates 4 sequential tasks:
 
 ---
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
 ### Step 1: Clone or Navigate to the Lab Directory
 
@@ -261,7 +261,7 @@ airflow-webserver-1  | 127.0.0.1 - - [DATE] "GET /health HTTP/1.1" 200 318 "-" "
 
 ---
 
-## 🎮 Running the Pipeline
+## Running the Pipeline
 
 ### Method 1: Manual Trigger (Recommended for Learning)
 
@@ -292,9 +292,9 @@ schedule_interval='0 9 * * *' # Run at 9 AM every day (cron format)
 
 ---
 
-## 📈 Understanding the Results
+## Understanding the Results
 
-### ✅ Successful Pipeline Execution
+### Successful Pipeline Execution
 
 ![Pipeline Success](assets/image.png)
 
@@ -313,14 +313,14 @@ After the pipeline completes successfully:
    - Click on the last task (`evaluate_model_task`) → **Logs** tab
    - View comprehensive performance metrics
 
-### 🎯 Actual Results from This Implementation
+### Actual Results from This Implementation
 
 **Model Performance (October 6, 2025):**
-- ✅ **Test Accuracy:** 80.6%
-- ✅ **Cross-Validation Score:** 79.4%
-- ✅ **Precision (Good Wine):** 83.4%
-- ✅ **Recall (Good Wine):** 79.5%
-- ✅ **F1-Score:** 81.4%
+- **Test Accuracy:** 80.6%
+- **Cross-Validation Score:** 79.4%
+- **Precision (Good Wine):** 83.4%
+- **Recall (Good Wine):** 79.5%
+- **F1-Score:** 81.4%
 
 **Top 5 Most Important Features:**
 1. `alcohol_to_density` (16.9%) - Our engineered feature!
@@ -377,7 +377,7 @@ Open `dags/model/evaluation_report.json`:
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Airflow_labs/
@@ -410,7 +410,7 @@ Note: __pycache__ folders are automatically generated and gitignored
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Issue: Docker containers won't start
 
@@ -467,7 +467,7 @@ taskkill /PID <PID_NUMBER> /F
 
 ---
 
-## 🎓 Learning Outcomes
+## Learning Outcomes
 
 After completing this lab, you should understand:
 
@@ -481,7 +481,7 @@ After completing this lab, you should understand:
 
 ---
 
-## 📚 Additional Resources
+## Additional Resources
 
 - [Apache Airflow Documentation](https://airflow.apache.org/docs/)
 - [Airflow Best Practices](https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html)
@@ -491,7 +491,7 @@ After completing this lab, you should understand:
 
 ---
 
-## 🤝 Credits
+## Credits
 
 - **Lab Created By:** Mohan Bhosale
 - **Course:** MLOps - Fall 2025
@@ -500,7 +500,7 @@ After completing this lab, you should understand:
 
 ---
 
-## 📝 Notes for Submission
+## Notes for Submission
 
 This lab demonstrates:
 - Custom dataset selection (Red Wine Quality from Kaggle)
@@ -519,7 +519,7 @@ This lab demonstrates:
 
 ---
 
-## 🔄 Stopping the Pipeline
+## Stopping the Pipeline
 
 When you're done:
 

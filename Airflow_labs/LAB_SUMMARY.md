@@ -6,7 +6,7 @@
 
 ---
 
-## 🎯 What Was Created
+## What Was Created
 
 This lab demonstrates a complete, production-ready machine learning pipeline using Apache Airflow. Unlike the original reference lab (which used K-Means clustering), this implementation showcases:
 
@@ -34,7 +34,7 @@ This lab demonstrates a complete, production-ready machine learning pipeline usi
 
 ---
 
-## 📁 Complete File Structure
+## Complete File Structure
 
 ```
 Airflow_labs/
@@ -43,16 +43,16 @@ Airflow_labs/
 ├── requirements.txt                 ✅ Python dependencies
 │
 ├── dags/
-│   ├── wine_quality_dag.py         ✅ Main Airflow DAG (well-commented)
+│   ├── wine_quality_dag.py          Main Airflow DAG (well-commented)
 │   │
 │   ├── src/
-│   │   ├── __init__.py             ✅ Module documentation
-│   │   └── wine_pipeline.py        ✅ ML pipeline functions (human-like code)
+│   │   ├── __init__.py              Module documentation
+│   │   └── wine_pipeline.py         ML pipeline functions (human-like code)
 │   │
 │   ├── data/
-│   │   └── Red Wine Quality.csv    ✅ Kaggle dataset (1,599 samples)
+│   │   └── Red Wine Quality.csv     Kaggle dataset (1,599 samples)
 │   │
-│   └── model/                       📦 Generated after pipeline runs
+│   └── model/                        Generated after pipeline runs
 │       ├── wine_quality_model.pkl   (Trained Random Forest)
 │       ├── scaler.pkl               (StandardScaler)
 │       └── evaluation_report.json   (Performance metrics)
@@ -67,7 +67,7 @@ Airflow_labs/
 
 ---
 
-## 🔄 The ML Pipeline (4 Tasks)
+## The ML Pipeline (4 Tasks)
 
 ### Task 1: Load Wine Data
 **Function:** `load_wine_data()`
@@ -116,35 +116,35 @@ Airflow_labs/
 
 ---
 
-## 💡 Code Quality Highlights
+## Code Quality Highlights
 
 ### Human-Like Writing Style
-✅ **Extensive comments** explaining WHY not just WHAT  
-✅ **Descriptive variable names** (`good_count`, `X_train_scaled`)  
-✅ **Clear function docstrings** with Args, Returns, Description  
-✅ **Informative print statements** with emojis and formatting  
-✅ **Step-by-step explanations** in comments  
-✅ **Domain context** (e.g., why we engineer certain features)  
+- **Extensive comments** explaining WHY not just WHAT  
+- **Descriptive variable names** (`good_count`, `X_train_scaled`)  
+- **Clear function docstrings** with Args, Returns, Description  
+- **Informative print statements** with clear formatting  
+- **Step-by-step explanations** in comments  
+- **Domain context** (e.g., why we engineer certain features)  
 
 ### Best Practices Demonstrated
-✅ **Data leakage prevention** (scaler fit only on training data)  
-✅ **Stratified splitting** (maintains class balance)  
-✅ **Cross-validation** (robust performance estimation)  
-✅ **Model persistence** (save/load for reproducibility)  
-✅ **Comprehensive logging** (detailed task outputs)  
-✅ **Error handling** (division by zero, NaN values)  
-✅ **Modular design** (each function = one responsibility)  
+- **Data leakage prevention** (scaler fit only on training data)  
+- **Stratified splitting** (maintains class balance)  
+- **Cross-validation** (robust performance estimation)  
+- **Model persistence** (save/load for reproducibility)  
+- **Comprehensive logging** (detailed task outputs)  
+- **Error handling** (division by zero, NaN values)  
+- **Modular design** (each function = one responsibility)  
 
 ### Documentation Excellence
-✅ **Complete README** with setup, usage, troubleshooting  
-✅ **Inline comments** throughout all code  
-✅ **Visual diagrams** in README and DAG file  
-✅ **Learning outcomes** section  
-✅ **Real-world context** (production considerations)  
+- **Complete README** with setup, usage, troubleshooting  
+- **Inline comments** throughout all code  
+- **Visual diagrams** in README and DAG file  
+- **Learning outcomes** section  
+- **Real-world context** (production considerations)  
 
 ---
 
-## 🎓 Learning Objectives Achieved
+## Learning Objectives Achieved
 
 This lab successfully demonstrates understanding of:
 
@@ -180,7 +180,7 @@ This lab successfully demonstrates understanding of:
 
 ---
 
-## 📊 Expected Results
+## Expected Results
 
 When you run this pipeline, you should see:
 
@@ -199,19 +199,19 @@ When you run this pipeline, you should see:
 
 ### Performance Metrics
 
-**✅ ACTUAL RESULTS ACHIEVED:**
-- **Test Accuracy:** 80.6% ✨
+**ACTUAL RESULTS ACHIEVED:**
+- **Test Accuracy:** 80.6%
 - **Cross-Validation Score:** 79.4%
 - **Precision (Good Wine):** 83.4%
 - **Recall (Good Wine):** 79.5%
 - **F1-Score:** 81.4%
 
 **Top Features Identified:**
-1. `alcohol_to_density` (16.9%) - Engineered feature!
+1. `alcohol_to_density` (16.9%) - Engineered feature
 2. `alcohol` (11.5%)
 3. `sulphates` (11.3%)
 4. `volatile acidity` (8.4%)
-5. `acid_ratio` (7.7%) - Engineered feature!
+5. `acid_ratio` (7.7%) - Engineered feature
 
 **Model Characteristics:**
 - Minimal overfitting: CV score (79.4%) ≈ Test score (80.6%)
@@ -220,7 +220,7 @@ When you run this pipeline, you should see:
 
 ---
 
-## 🔍 How This Differs from the Original Lab
+## How This Differs from the Original Lab
 
 | Aspect | Original Lab | This Lab |
 |--------|--------------|----------|
@@ -236,7 +236,7 @@ When you run this pipeline, you should see:
 
 ---
 
-## ✅ Submission Checklist
+## Submission Checklist
 
 - [x] Custom dataset from Kaggle 
 - [x] Different ML algorithm and task type
@@ -251,7 +251,7 @@ When you run this pipeline, you should see:
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 To run this lab:
 
