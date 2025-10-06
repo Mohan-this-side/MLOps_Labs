@@ -1,0 +1,69 @@
+{
+  "test_accuracy": 0.80625,
+  "classification_report": {
+    "0": {
+      "precision": 0.7770700636942676,
+      "recall": 0.8187919463087249,
+      "f1-score": 0.7973856209150327,
+      "support": 149.0
+    },
+    "1": {
+      "precision": 0.8343558282208589,
+      "recall": 0.7953216374269005,
+      "f1-score": 0.8143712574850299,
+      "support": 171.0
+    },
+    "accuracy": 0.80625,
+    "macro avg": {
+      "precision": 0.8057129459575632,
+      "recall": 0.8070567918678127,
+      "f1-score": 0.8058784392000313,
+      "support": 320.0
+    },
+    "weighted avg": {
+      "precision": 0.8076821441131647,
+      "recall": 0.80625,
+      "f1-score": 0.806462320457125,
+      "support": 320.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      122,
+      27
+    ],
+    [
+      35,
+      136
+    ]
+  ],
+  "sensitivity": 0.7953216374269005,
+  "specificity": 0.8187919463087249,
+  "true_positives": 136,
+  "true_negatives": 122,
+  "false_positives": 27,
+  "false_negatives": 35,
+  "training_cv_score": 0.7936029411764706,
+  "top_features": [
+    {
+      "feature": "alcohol_to_density",
+      "importance": 0.16884603427656839
+    },
+    {
+      "feature": "alcohol",
+      "importance": 0.1146901671811894
+    },
+    {
+      "feature": "sulphates",
+      "importance": 0.11257685976855866
+    },
+    {
+      "feature": "volatile acidity",
+      "importance": 0.08384870375163914
+    },
+    {
+      "feature": "acid_ratio",
+      "importance": 0.07721216644733347
+    }
+  ]
+}

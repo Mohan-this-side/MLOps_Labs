@@ -1,0 +1,22 @@
+# Wine Quality Classification Pipeline - Python Dependencies
+# Author: Mohan Bhosale
+# Date: October 2025
+
+# Core ML and Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+
+# Apache Airflow (if running locally without Docker)
+# apache-airflow>=2.9.0
+
+# Note: When running with Docker, these packages are installed automatically
+# via the _PIP_ADDITIONAL_REQUIREMENTS setting in docker-compose.yaml
+#
+# The Docker setup only requires:
+# - pandas
+# - scikit-learn
+#
+# All other dependencies (numpy, etc.) are pulled in automatically
+# as they are required by the above packages.
+

@@ -1,0 +1,25 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Airflow logs (generated during execution)
+logs/
+
+# Docker volumes and temporary files
+.env
+
+# macOS
+.DS_Store
+
+# Model artifacts (optional - keep these if you want to commit trained models)
+# dags/model/*.pkl
+# dags/model/*.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
