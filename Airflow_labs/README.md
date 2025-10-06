@@ -12,7 +12,8 @@
 
 The Wine Quality Classification pipeline has been successfully implemented using Apache Airflow and Docker. All tasks completed successfully, generating trained models and comprehensive evaluation reports.
 
-![Successful Pipeline Execution](assets/pipeline_success.png)
+![Successful Pipeline Execution](<img width="1869" height="665" alt="image" src="https://github.com/user-attachments/assets/e8e5375e-89ba-4da5-b9f4-50d7eae64cfb" />
+)
 
 **Quick Results:**
 - 🎯 Model Accuracy: **80.6%**
