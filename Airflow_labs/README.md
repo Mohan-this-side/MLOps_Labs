@@ -12,7 +12,7 @@
 
 The Wine Quality Classification pipeline has been successfully implemented using Apache Airflow and Docker. All tasks completed successfully, generating trained models and comprehensive evaluation reports.
 
-![Successful Pipeline Execution](/assets/image.png)
+![Successful Pipeline Execution](assets/image.png)
 
 **Quick Results:**
 - 🎯 Model Accuracy: **80.6%**
@@ -296,9 +296,9 @@ schedule_interval='0 9 * * *' # Run at 9 AM every day (cron format)
 
 ### ✅ Successful Pipeline Execution
 
-![Pipeline Success](assets/pipeline_success.png)
+![Pipeline Success](assets/image.png)
 
-*Screenshot showing all 4 tasks completed successfully in the Airflow UI*
+*Screenshot showing all 4 tasks completed successfully in the Airflow UI - Wine Quality ML Pipeline with 80.6% accuracy*
 
 ### Where to Find Results
 
@@ -382,7 +382,7 @@ Open `dags/model/evaluation_report.json`:
 ```
 Airflow_labs/
 ├── assets/                          # Screenshots and images
-│   └── pipeline_success.png         # Successful execution screenshot
+│   └── image.png                    # Successful pipeline execution screenshot
 ├── dags/
 │   ├── wine_quality_dag.py          # Main DAG definition
 │   ├── src/
