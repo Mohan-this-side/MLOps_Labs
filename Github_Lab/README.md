@@ -2,7 +2,7 @@
 
 **By Mohan Bhosale**
 
-**Course:** MLOps (IE-7374)  
+**Course:** MLOps(IE-7374)  
 **Institution:** Northeastern University  
 **Semester:** Fall 2025
 
