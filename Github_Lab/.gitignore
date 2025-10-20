@@ -1,0 +1,41 @@
+# Virtual Environment
+github_env/
+venv/
+env/
+ENV/
+lab_01/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Testing
+.coverage
+htmlcov/
+*.cover
+.hypothesis/
+pytest-report.xml
+.tox/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
