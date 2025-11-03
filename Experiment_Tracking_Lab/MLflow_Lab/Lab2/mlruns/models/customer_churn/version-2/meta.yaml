@@ -1,0 +1,15 @@
+creation_timestamp: 1762211486704
+current_stage: None
+deployment_job_state: null
+description: ''
+last_updated_timestamp: 1762211486704
+model_id: m-08ed933713bf4a26a53b62ea55f050ce
+name: customer_churn
+run_id: c5103b77580c46fabef88f32405aec3e
+run_link: ''
+source: file:///Users/mohan/NEU/FALL%202025/MLOps/MLOPS_LABS/MLOps_Labs/Experiment_Tracking_Lab/MLflow_Lab/Lab2/mlruns/976247412313560872/models/m-08ed933713bf4a26a53b62ea55f050ce/artifacts
+status: READY
+status_message: null
+storage_location: file:///Users/mohan/NEU/FALL%202025/MLOps/MLOPS_LABS/MLOps_Labs/Experiment_Tracking_Lab/MLflow_Lab/Lab2/mlruns/976247412313560872/models/m-08ed933713bf4a26a53b62ea55f050ce/artifacts
+user_id: null
+version: 2

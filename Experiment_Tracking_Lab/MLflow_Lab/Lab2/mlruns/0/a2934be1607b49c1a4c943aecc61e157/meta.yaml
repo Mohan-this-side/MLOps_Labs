@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/mohan/NEU/FALL%202025/MLOps/MLOPS_LABS/MLOps_Labs/Experiment_Tracking_Lab/MLflow_Lab/Lab2/mlruns/0/a2934be1607b49c1a4c943aecc61e157/artifacts
+end_time: 1762209597166
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a2934be1607b49c1a4c943aecc61e157
+run_name: churn_baseline_model
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1762209596543
+status: 3
+tags: []
+user_id: mohan

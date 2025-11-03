@@ -1,0 +1,10 @@
+artifact_location: file:///Users/mohan/NEU/FALL%202025/MLOps/MLOPS_LABS/MLOps_Labs/Experiment_Tracking_Lab/MLflow_Lab/Lab2/mlruns/976247412313560872/models/m-08ed933713bf4a26a53b62ea55f050ce/artifacts
+creation_timestamp: 1762210646966
+experiment_id: '976247412313560872'
+last_updated_timestamp: 1762210647493
+model_id: m-08ed933713bf4a26a53b62ea55f050ce
+model_type: null
+name: random_forest_model
+source_run_id: c5103b77580c46fabef88f32405aec3e
+status: 2
+status_message: null
