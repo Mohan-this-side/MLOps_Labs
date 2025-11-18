@@ -1,0 +1,26 @@
+# Use an official Python runtime as a parent image
+FROM python:3.9
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy requirements.txt first for better Docker layer caching
+# This allows Docker to cache the dependency installation layer
+# and only reinstall if requirements.txt changes
+COPY requirements.txt /app/
+
+# Install the required packages
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the source code into the container
+COPY src/ /app/
+
+# Copy the data directory into the container
+COPY data/ /app/data/
+
+# Expose port 5000 for the Flask application
+EXPOSE 5000
+
+# Run the Flask application when the container launches
+CMD ["python", "main.py"]
+

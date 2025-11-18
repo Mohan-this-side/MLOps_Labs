@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Classifier - MLOps Lab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        input[type="number"],
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="number"]:focus,
+        input[type="text"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .result.success {
+            background: #d4edda;
+            border: 2px solid #c3e6cb;
+            color: #155724;
+        }
+        
+        .result.error {
+            background: #f8d7da;
+            border: 2px solid #f5c6cb;
+            color: #721c24;
+        }
+        
+        .result h2 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .predicted-class {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+            margin: 10px 0;
+        }
+        
+        .probabilities {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .prob-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 5px 0;
+        }
+        
+        .prob-bar {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        
+        .prob-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fruit Classifier</h1>
+        <p class="subtitle">MLOps Docker Lab - Enter fruit features to get predictions</p>
+        
+        <form id="predictionForm">
+            {% for feature in feature_names %}
+            <div class="form-group">
+                <label for="{{ feature }}">{{ feature.replace('_', ' ').title() }}:</label>
+                {% if feature in categorical_features %}
+                    {% if feature in categorical_options %}
+                    <select id="{{ feature }}" name="{{ feature }}" required>
+                        <option value="">Select {{ feature.replace('_', ' ') }}</option>
+                        {% for option in categorical_options[feature] %}
+                        <option value="{{ option }}">{{ option }}</option>
+                        {% endfor %}
+                    </select>
+                    {% else %}
+                    <input type="text" 
+                           id="{{ feature }}" 
+                           name="{{ feature }}" 
+                           required 
+                           placeholder="Enter {{ feature.replace('_', ' ') }}">
+                    {% endif %}
+                {% else %}
+                <input type="number" 
+                       id="{{ feature }}" 
+                       name="{{ feature }}" 
+                       step="0.01" 
+                       required 
+                       placeholder="Enter {{ feature.replace('_', ' ') }}">
+                {% endif %}
+            </div>
+            {% endfor %}
+            
+            <button type="submit" class="submit-btn">Predict Fruit</button>
+        </form>
+        
+        <div class="loading" id="loading">
+            Making prediction...
+        </div>
+        
+        <div class="result" id="result">
+            <h2 id="resultTitle"></h2>
+            <div id="resultContent"></div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('predictionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Show loading
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('result').style.display = 'none';
+            
+            // Collect form data
+            const formData = {};
+            {% for feature in feature_names %}
+            formData['{{ feature }}'] = document.getElementById('{{ feature }}').value;
+            {% endfor %}
+            
+            // Make prediction request
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('loading').style.display = 'none';
+                
+                if (data.error) {
+                    // Show error
+                    const resultDiv = document.getElementById('result');
+                    resultDiv.className = 'result error';
+                    resultDiv.style.display = 'block';
+                    document.getElementById('resultTitle').textContent = 'Error';
+                    document.getElementById('resultContent').innerHTML = '<p>' + data.error + '</p>';
+                } else {
+                    // Show success
+                    const resultDiv = document.getElementById('result');
+                    resultDiv.className = 'result success';
+                    resultDiv.style.display = 'block';
+                    document.getElementById('resultTitle').textContent = 'Prediction Result';
+                    
+                    let content = '<div class="predicted-class">Predicted Fruit: ' + data.predicted_class + '</div>';
+                    
+                    if (data.probabilities) {
+                        content += '<div class="probabilities"><strong>Probabilities:</strong>';
+                        for (const [className, prob] of Object.entries(data.probabilities)) {
+                            const percentage = (prob * 100).toFixed(2);
+                            content += '<div class="prob-item">';
+                            content += '<span>' + className + '</span>';
+                            content += '<span>' + percentage + '%</span>';
+                            content += '</div>';
+                            content += '<div class="prob-bar"><div class="prob-fill" style="width: ' + percentage + '%"></div></div>';
+                        }
+                        content += '</div>';
+                    }
+                    
+                    document.getElementById('resultContent').innerHTML = content;
+                }
+            })
+            .catch(error => {
+                document.getElementById('loading').style.display = 'none';
+                const resultDiv = document.getElementById('result');
+                resultDiv.className = 'result error';
+                resultDiv.style.display = 'block';
+                document.getElementById('resultTitle').textContent = 'Error';
+                document.getElementById('resultContent').innerHTML = '<p>Could not reach the prediction server. Please try again.</p>';
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
+
